@@ -653,33 +653,132 @@ body{
   .showcase-container{gap:18px;}
   .footer-grid{grid-template-columns:1fr;}
 }
+@media(max-width:560px){
+  .art-grid{grid-template-columns:1fr;}
+  .feat-sidebar{grid-template-columns:1fr;}
+  .main-container{padding:0 12px;}
+}
+
 /* ═══════════════════════════════════════
-   NAV DROPDOWN — РАЗДЕЛЫ
+   DROPDOWN РАЗДЕЛЫ
 ═══════════════════════════════════════ */
-.nav-dropdown{position:relative;display:inline-block;}
-.dropdown-menu{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--glass2);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%);border:var(--border-strong);border-radius:22px;box-shadow:var(--shadow-lg);padding:8px;min-width:200px;z-index:500;animation:scaleIn .2s ease;}
-.dropdown-menu.open{display:block;}
-.dropdown-menu button{display:block;width:100%;text-align:left;font-family:'IBM Plex Sans',sans-serif;font-size:14px;padding:10px 16px;background:none;border:none;cursor:pointer;color:var(--text);border-radius:14px;transition:background .14s;}
+.nav-dropdown{position:relative;display:inline-flex;align-items:center;}
+.dropdown-menu{
+  display:none;position:absolute;top:calc(100% + 10px);left:50%;
+  transform:translateX(-50%);
+  background:var(--glass2);backdrop-filter:blur(28px) saturate(180%);
+  -webkit-backdrop-filter:blur(28px) saturate(180%);
+  border:var(--border-strong);border-radius:22px;
+  box-shadow:var(--shadow-lg);padding:8px;min-width:210px;z-index:600;
+}
+.dropdown-menu.open{display:block;animation:scaleIn .2s ease;}
+.dropdown-menu button{
+  display:block;width:100%;text-align:left;
+  font-family:'IBM Plex Sans',sans-serif;font-size:14px;
+  padding:10px 16px;background:none;border:none;cursor:pointer;
+  color:var(--text);border-radius:14px;transition:background .14s;
+}
 .dropdown-menu button:hover{background:var(--red-light);color:var(--red);}
 
 /* ═══════════════════════════════════════
-   MOBILE SECTIONS SHEET
+   СТРАНИЦЫ — ПЕРЕКЛЮЧЕНИЕ
 ═══════════════════════════════════════ */
-.mob-sections-sheet{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);z-index:800;align-items:flex-end;justify-content:center;}
-.mob-sections-sheet.open{display:flex;animation:fadeIn .2s;}
-.mob-sheet-inner{background:var(--glass2);border-radius:28px 28px 0 0;padding:24px 20px 32px;width:100%;max-width:480px;animation:slideUp .25s ease;}
-.mob-sheet-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:16px;color:var(--text);text-align:center;}
+.page-section{display:none;}
+.page-section.active{display:block;animation:fadeInUp .3s ease;}
+
+/* ═══════════════════════════════════════
+   МОБИЛЬНАЯ ШТОРКА РАЗДЕЛОВ
+═══════════════════════════════════════ */
+.mob-sheet-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,0.55);backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);z-index:800;
+  align-items:flex-end;justify-content:center;
+}
+.mob-sheet-overlay.open{display:flex;animation:fadeIn .2s;}
+.mob-sheet-inner{
+  background:var(--glass2);border-radius:28px 28px 0 0;
+  padding:24px 20px 36px;width:100%;max-width:480px;
+  animation:slideUp .25s ease;
+}
+.mob-sheet-title{
+  font-family:'Playfair Display',serif;font-size:20px;font-weight:700;
+  margin-bottom:18px;color:var(--text);text-align:center;
+}
 .mob-sheet-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;}
-.mob-sheet-grid button{font-family:'IBM Plex Sans',sans-serif;font-size:13px;padding:12px 8px;background:var(--glass-card);border:var(--border-strong);border-radius:18px;cursor:pointer;color:var(--text);text-align:center;transition:all .15s;}
-.mob-sheet-grid button:hover,.mob-sheet-grid button:active{background:var(--red);color:#fff;border-color:var(--red);}
-.mob-sheet-close{display:block;width:100%;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;padding:13px;background:var(--glass-card2);border:var(--border-strong);border-radius:60px;cursor:pointer;color:var(--text);transition:all .2s;}
+.mob-sheet-grid button{
+  font-family:'IBM Plex Sans',sans-serif;font-size:13px;
+  padding:12px 8px;background:var(--glass-card);
+  border:var(--border-strong);border-radius:18px;
+  cursor:pointer;color:var(--text);text-align:center;
+  transition:all .15s;
+}
+.mob-sheet-grid button:active{background:var(--red);color:#fff;border-color:var(--red);}
+.mob-sheet-close{
+  display:block;width:100%;
+  font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;
+  padding:13px;background:var(--glass-card2);
+  border:var(--border-strong);border-radius:60px;
+  cursor:pointer;color:var(--text);transition:all .2s;
+}
 .mob-sheet-close:hover{background:var(--red);color:#fff;border-color:var(--red);}
 
 /* ═══════════════════════════════════════
-   PAGE TRANSITIONS
+   СТРАНИЦА ПОГОДЫ
 ═══════════════════════════════════════ */
-#page-home,#page-news,#page-weather,#page-about{animation:fadeInUp .3s ease;}
+.weather-page-wrap{
+  max-width:900px;margin:0 auto;padding:32px 28px 48px;
+}
+.weather-page-widget{
+  background:var(--glass-card2);backdrop-filter:blur(18px);
+  border-radius:28px;padding:24px;margin-bottom:24px;
+  border:var(--border-strong);box-shadow:var(--shadow-md);
+}
 
+/* ═══════════════════════════════════════
+   СТРАНИЦА О НАС
+═══════════════════════════════════════ */
+.about-page-wrap{
+  max-width:960px;margin:0 auto;padding:32px 28px 48px;
+}
+.about-card{
+  background:var(--glass-card2);backdrop-filter:blur(18px);
+  border-radius:28px;padding:32px;margin-bottom:24px;
+  border:var(--border-strong);box-shadow:var(--shadow-md);
+  font-family:'IBM Plex Sans',sans-serif;font-size:14px;
+  line-height:1.7;color:var(--text-light);
+}
+.about-stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:16px;margin:24px 0;
+}
+.about-stat-box{
+  background:var(--red-light);border:1px solid var(--red);
+  border-radius:18px;padding:20px;text-align:center;
+}
+.about-stat-num{
+  font-family:'Playfair Display',serif;font-size:38px;
+  font-weight:700;color:var(--red);line-height:1;
+}
+.about-stat-lbl{
+  font-family:'IBM Plex Sans',sans-serif;font-size:11px;
+  color:var(--text-muted);text-transform:uppercase;
+  letter-spacing:.06em;margin-top:6px;
+}
+.about-doc-btns{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:32px;}
+.about-doc-btn{
+  font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;
+  background:var(--glass-card2);border:var(--border-strong);
+  color:var(--text);padding:12px 24px;border-radius:40px;
+  cursor:pointer;transition:all .2s;
+}
+.about-doc-btn:hover{background:var(--red);color:#fff;border-color:var(--red);}
+
+@media(max-width:560px){
+  .mob-sheet-grid{grid-template-columns:1fr 1fr;}
+  .weather-page-wrap,.about-page-wrap{padding:24px 14px 48px;}
+}
+</style>
 </head>
 <body>
 
@@ -766,25 +865,25 @@ body{
       <img src="https://i.ibb.co/7t5smVmQ/image-384abc20-2.png" alt="" id="scrollLogoImg" style="height:30px">
     </div>
     <div class="nav-pills" id="navPills">
-      <button class="npill active" id="navHome" onclick="showPage('home')">🏠 Главная</button>
-      <!-- РАЗДЕЛЫ — выпадающий список -->
-      <div class="nav-dropdown" id="navDropdown">
-        <button class="npill" id="navSections" onclick="toggleSectionsDropdown(event)">📂 Разделы ▾</button>
-        <div class="dropdown-menu" id="sectionsMenu">
-          <button onclick="filterCatFromMenu('Политика')">🏛️ Политика</button>
-          <button onclick="filterCatFromMenu('Общество')">📰 Общество</button>
-          <button onclick="filterCatFromMenu('Экономика')">📈 Экономика</button>
-          <button onclick="filterCatFromMenu('Наука')">🔬 Наука</button>
-          <button onclick="filterCatFromMenu('Спорт')">⚽ Спорт</button>
-          <button onclick="filterCatFromMenu('Происшествия')">🚨 Происшествия</button>
-          <button onclick="filterCatFromMenu('Культура')">🎭 Культура</button>
-          <button onclick="filterCatFromMenu('Здоровье')">❤️ Здоровье</button>
-          <button onclick="filterCatFromMenu('Транспорт')">🚌 Транспорт</button>
+      <button class="npill active" id="navBtnHome" onclick="showPage('home',this)">🏠 Главная</button>
+      <!-- РАЗДЕЛЫ -->
+      <div class="nav-dropdown" id="navDropdownWrap">
+        <button class="npill" id="navBtnSections" onclick="toggleDropdown(event)">📂 Разделы ▾</button>
+        <div class="dropdown-menu" id="sectionsDropdown">
+          <button onclick="selectSection('Политика')">🏛️ Политика</button>
+          <button onclick="selectSection('Общество')">📰 Общество</button>
+          <button onclick="selectSection('Экономика')">📈 Экономика</button>
+          <button onclick="selectSection('Наука')">🔬 Наука</button>
+          <button onclick="selectSection('Спорт')">⚽ Спорт</button>
+          <button onclick="selectSection('Происшествия')">🚨 Происшествия</button>
+          <button onclick="selectSection('Культура')">🎭 Культура</button>
+          <button onclick="selectSection('Здоровье')">❤️ Здоровье</button>
+          <button onclick="selectSection('Транспорт')">🚌 Транспорт</button>
         </div>
       </div>
-      <button class="npill" id="navNews" onclick="showPage('news')">📋 Все новости</button>
-      <button class="npill" id="navWeather" onclick="showPage('weather')">🌤️ Погода</button>
-      <button class="npill" id="navAbout" onclick="showPage('about')">ℹ️ О нас</button>
+      <button class="npill" id="navBtnNews" onclick="showPage('news',this)">📋 Все новости</button>
+      <button class="npill" id="navBtnWeather" onclick="showPage('weather',this)">🌤️ Погода</button>
+      <button class="npill" id="navBtnAbout" onclick="showPage('about',this)">ℹ️ О нас</button>
     </div>
     <button class="nav-search-pill" onclick="openSearch()">🔍&nbsp;Поиск</button>
   </div>
@@ -792,50 +891,51 @@ body{
 
 <!-- MOBILE BOTTOM TAB BAR -->
 <div class="mob-tabbar" id="mobTabbar">
-  <button class="mtab active" id="mtab0" onclick="showPage('home');setMobTab(0)">
+  <button class="mtab active" id="mobBtnHome" onclick="showPage('home',null);setMobActive(0)">
     <span class="mtab-icon">🏠</span>
     <span class="mtab-label">Главная</span>
   </button>
-  <button class="mtab" id="mtab1" onclick="toggleMobSections()">
+  <button class="mtab" id="mobBtnSections" onclick="openMobSheet()">
     <span class="mtab-icon">📂</span>
     <span class="mtab-label">Разделы</span>
   </button>
-  <button class="mtab" id="mtab2" onclick="showPage('news');setMobTab(2)">
+  <button class="mtab" id="mobBtnNews" onclick="showPage('news',null);setMobActive(2)">
     <span class="mtab-icon">📋</span>
     <span class="mtab-label">Новости</span>
   </button>
-  <button class="mtab" id="mtab3" onclick="showPage('weather');setMobTab(3)">
+  <button class="mtab" id="mobBtnWeather" onclick="showPage('weather',null);setMobActive(3)">
     <span class="mtab-icon">🌤️</span>
     <span class="mtab-label">Погода</span>
   </button>
-  <button class="mtab" id="mtab4" onclick="showPage('about');setMobTab(4)">
+  <button class="mtab" id="mobBtnAbout" onclick="showPage('about',null);setMobActive(4)">
     <span class="mtab-icon">ℹ️</span>
     <span class="mtab-label">О нас</span>
   </button>
   <button class="mtab-search" onclick="openSearch()" aria-label="Поиск">🔍</button>
 </div>
-<!-- Mobile sections sheet -->
-<div class="mob-sections-sheet" id="mobSectionsSheet" onclick="if(event.target===this)closeMobSections()">
+
+<!-- МОБИЛЬНАЯ ШТОРКА РАЗДЕЛОВ -->
+<div class="mob-sheet-overlay" id="mobSheetOverlay" onclick="if(event.target===this)closeMobSheet()">
   <div class="mob-sheet-inner">
     <div class="mob-sheet-title">Разделы</div>
     <div class="mob-sheet-grid">
-      <button onclick="filterCatFromMenu('Политика');closeMobSections()">🏛️ Политика</button>
-      <button onclick="filterCatFromMenu('Общество');closeMobSections()">📰 Общество</button>
-      <button onclick="filterCatFromMenu('Экономика');closeMobSections()">📈 Экономика</button>
-      <button onclick="filterCatFromMenu('Наука');closeMobSections()">🔬 Наука</button>
-      <button onclick="filterCatFromMenu('Спорт');closeMobSections()">⚽ Спорт</button>
-      <button onclick="filterCatFromMenu('Происшествия');closeMobSections()">🚨 Происшествия</button>
-      <button onclick="filterCatFromMenu('Культура');closeMobSections()">🎭 Культура</button>
-      <button onclick="filterCatFromMenu('Здоровье');closeMobSections()">❤️ Здоровье</button>
-      <button onclick="filterCatFromMenu('Транспорт');closeMobSections()">🚌 Транспорт</button>
+      <button onclick="selectSection('Политика');closeMobSheet()">🏛️ Политика</button>
+      <button onclick="selectSection('Общество');closeMobSheet()">📰 Общество</button>
+      <button onclick="selectSection('Экономика');closeMobSheet()">📈 Экономика</button>
+      <button onclick="selectSection('Наука');closeMobSheet()">🔬 Наука</button>
+      <button onclick="selectSection('Спорт');closeMobSheet()">⚽ Спорт</button>
+      <button onclick="selectSection('Происшествия');closeMobSheet()">🚨 Происшествия</button>
+      <button onclick="selectSection('Культура');closeMobSheet()">🎭 Культура</button>
+      <button onclick="selectSection('Здоровье');closeMobSheet()">❤️ Здоровье</button>
+      <button onclick="selectSection('Транспорт');closeMobSheet()">🚌 Транспорт</button>
     </div>
-    <button class="mob-sheet-close" onclick="closeMobSections()">Закрыть</button>
+    <button class="mob-sheet-close" onclick="closeMobSheet()">Закрыть</button>
   </div>
 </div>
 
-<!-- ═══ СТРАНИЦЫ ═══ -->
-<div id="page-home">
-<!-- MAIN -->
+<!-- СТРАНИЦА: ГЛАВНАЯ -->
+<div id="page-home" class="page-section active">
+<div class="main-container">
 
 <!-- FEATURED -->
 <div class="featured-section">
@@ -938,90 +1038,78 @@ body{
 
 </div><!-- /page-home -->
 
-<!-- ═══ СТРАНИЦА: ВСЕ НОВОСТИ ═══ -->
-<div id="page-news" style="display:none">
-  <div class="main-container" style="padding-top:32px">
+<!-- СТРАНИЦА: ВСЕ НОВОСТИ -->
+<div id="page-news" class="page-section">
+  <div class="main-container" style="padding-top:28px">
     <div class="sec-div"><div class="ln ln-s"></div><h2 id="newsPageTitle">Все новости</h2><div class="ln"></div></div>
-    <!-- Фильтр разделов на странице новостей -->
-    <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px" id="newsFilterBar">
-      <button class="npill active" id="nfAll" onclick="newsFilterCat('')">Все</button>
-      <button class="npill" onclick="newsFilterCat('Политика')">Политика</button>
-      <button class="npill" onclick="newsFilterCat('Общество')">Общество</button>
-      <button class="npill" onclick="newsFilterCat('Экономика')">Экономика</button>
-      <button class="npill" onclick="newsFilterCat('Наука')">Наука</button>
-      <button class="npill" onclick="newsFilterCat('Спорт')">Спорт</button>
-      <button class="npill" onclick="newsFilterCat('Происшествия')">Происшествия</button>
-      <button class="npill" onclick="newsFilterCat('Культура')">Культура</button>
-      <button class="npill" onclick="newsFilterCat('Здоровье')">Здоровье</button>
-      <button class="npill" onclick="newsFilterCat('Транспорт')">Транспорт</button>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px" id="newsFilterBar">
+      <button class="npill active" id="nfAll" onclick="newsFilter('')">Все</button>
+      <button class="npill" onclick="newsFilter('Политика')">Политика</button>
+      <button class="npill" onclick="newsFilter('Общество')">Общество</button>
+      <button class="npill" onclick="newsFilter('Экономика')">Экономика</button>
+      <button class="npill" onclick="newsFilter('Наука')">Наука</button>
+      <button class="npill" onclick="newsFilter('Спорт')">Спорт</button>
+      <button class="npill" onclick="newsFilter('Происшествия')">Происшествия</button>
+      <button class="npill" onclick="newsFilter('Культура')">Культура</button>
+      <button class="npill" onclick="newsFilter('Здоровье')">Здоровье</button>
+      <button class="npill" onclick="newsFilter('Транспорт')">Транспорт</button>
     </div>
     <div class="art-grid" id="newsGrid"></div>
-    <div class="load-more-wrap" id="newsLoadMoreWrap" style="display:none">
-      <button class="load-more-btn" onclick="newsLoadMore()">Показать ещё новости</button>
+    <div class="load-more-wrap" id="newsLoadWrap" style="display:none">
+      <button class="load-more-btn" onclick="newsLoadMore()">Показать ещё</button>
     </div>
   </div>
 </div>
 
-<!-- ═══ СТРАНИЦА: ПОГОДА ═══ -->
-<div id="page-weather" style="display:none">
-  <div class="main-container" style="padding-top:32px;max-width:900px">
+<!-- СТРАНИЦА: ПОГОДА -->
+<div id="page-weather" class="page-section">
+  <div class="weather-page-wrap">
     <div class="sec-div"><div class="ln ln-s"></div><h2>Погода в Томске</h2><div class="ln"></div></div>
-    <div style="background:var(--glass-card2);backdrop-filter:blur(18px);border-radius:28px;padding:32px;margin-bottom:28px;border:var(--border-strong);box-shadow:var(--shadow-md)">
+    <div class="weather-page-widget">
       <a class="weatherwidget-io" href="https://forecast7.com/ru/56d5084d99/tomsk/" data-label_1="Погода" data-label_2="в Томске" data-theme="original">Погода в Томске</a>
     </div>
-    <div class="tomsk-widget" style="margin-bottom:28px">
-      <div class="tw-title">📍 Томск сегодня</div>
+    <div class="sec-div" style="margin:0 0 14px"><div class="ln ln-s"></div><h2>Томск сегодня</h2><div class="ln"></div></div>
+    <div class="tomsk-widget">
+      <div class="tw-title">📍 Ключевые показатели</div>
       <div class="tw-row"><span class="tw-label">Население</span><span class="tw-val">630 756 чел.</span></div>
       <div class="tw-row"><span class="tw-label">Студентов</span><span class="tw-val">~90 000</span></div>
-      <div class="tw-row"><span class="tw-label">USD</span><span class="tw-val" id="weatherWidgetUsd">–</span></div>
-      <div class="tw-row"><span class="tw-label">EUR</span><span class="tw-val" id="weatherWidgetEur">–</span></div>
+      <div class="tw-row"><span class="tw-label">USD</span><span class="tw-val" id="wUsd2">–</span></div>
+      <div class="tw-row"><span class="tw-label">EUR</span><span class="tw-val" id="wEur2">–</span></div>
       <div class="tw-row"><span class="tw-label">ВРП рост</span><span class="tw-val up">▲ 6,3%</span></div>
     </div>
   </div>
 </div>
 
-<!-- ═══ СТРАНИЦА: О НАС ═══ -->
-<div id="page-about" style="display:none">
-  <div class="main-container" style="padding-top:32px;max-width:900px">
+<!-- СТРАНИЦА: О НАС -->
+<div id="page-about" class="page-section">
+  <div class="about-page-wrap">
     <div class="sec-div"><div class="ln ln-s"></div><h2>О нас</h2><div class="ln"></div></div>
-    <!-- О редакции -->
-    <div style="background:var(--glass-card2);backdrop-filter:blur(18px);border-radius:28px;padding:36px;margin-bottom:28px;border:var(--border-strong);box-shadow:var(--shadow-md);font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.7;color:var(--text-light)">
-      <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--text);margin-bottom:18px">The Tomsk Times</div>
-      <p style="margin-bottom:14px">The Tomsk Times — информационный ресурс, освещающий события в городе Томске и Томской области. Сайт создан в 2026 году с целью оперативного и достоверного информирования жителей региона.</p>
-      <p style="margin-bottom:14px">Издание не зарегистрировано в качестве СМИ, при этом редакция добровольно соблюдает нормы журналистской этики и профессиональные стандарты.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0">
-        <div style="background:var(--red-light);border:1px solid var(--red);border-radius:18px;padding:20px;text-align:center">
-          <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--red)">20+</div>
-          <div style="font-size:13px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em">публикаций</div>
-        </div>
-        <div style="background:var(--red-light);border:1px solid var(--red);border-radius:18px;padding:20px;text-align:center">
-          <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--red)">24/7</div>
-          <div style="font-size:13px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em">онлайн</div>
-        </div>
-        <div style="background:var(--red-light);border:1px solid var(--red);border-radius:18px;padding:20px;text-align:center">
-          <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--red)">2026</div>
-          <div style="font-size:13px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em">год основания</div>
-        </div>
+    <div class="about-card">
+      <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--text);margin-bottom:14px">The Tomsk Times</div>
+      <p style="margin-bottom:12px">Информационный ресурс, освещающий события в городе Томске и Томской области. Создан в 2026 году с целью оперативного и достоверного информирования жителей региона.</p>
+      <p style="margin-bottom:12px">Издание не зарегистрировано в качестве СМИ и функционирует в соответствии с ч. 2 ст. 1 Закона РФ «О СМИ». Редакция добровольно соблюдает нормы журналистской этики.</p>
+      <div class="about-stats">
+        <div class="about-stat-box"><div class="about-stat-num">20+</div><div class="about-stat-lbl">публикаций</div></div>
+        <div class="about-stat-box"><div class="about-stat-num">24/7</div><div class="about-stat-lbl">онлайн</div></div>
+        <div class="about-stat-box"><div class="about-stat-num">2026</div><div class="about-stat-lbl">год основания</div></div>
       </div>
-      <p style="margin-bottom:10px"><strong>Контакты:</strong></p>
-      <p>Telegram-бот: [будет ссылка]<br>
-      Email: <a href="mailto:info@tomsktimes.ru" style="color:var(--red)">info@tomsktimes.ru</a><br>
-      Пресс-релизы: <a href="mailto:press@tomsktimes.ru" style="color:var(--red)">press@tomsktimes.ru</a></p>
-      <p style="margin-top:20px;font-size:13px;color:var(--text-muted)">Режим работы: Пн–Пт 10:00–19:00. Дежурный режим в выходные. Круглосуточный приём через Telegram-бот.</p>
+      <p style="margin-bottom:8px"><strong>Контакты:</strong></p>
+      <p style="margin-bottom:4px">Telegram-бот: [ссылка будет добавлена]</p>
+      <p style="margin-bottom:4px">Email: <a href="mailto:info@tomsktimes.ru" style="color:var(--red)">info@tomsktimes.ru</a></p>
+      <p style="margin-bottom:4px">Пресс-релизы: <a href="mailto:press@tomsktimes.ru" style="color:var(--red)">press@tomsktimes.ru</a></p>
+      <p style="margin-top:14px;font-size:13px;color:var(--text-muted)">Пн–Пт: 10:00–19:00 · Выходные: дежурный режим · Telegram-бот: 24/7</p>
     </div>
-    <!-- Правовые документы -->
-    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:32px">
-      <button class="load-more-btn" style="background:var(--glass-card2);color:var(--text);border:var(--border-strong)" onclick="openPrivacyPolicy()">📄 Политика конфиденциальности</button>
-      <button class="load-more-btn" style="background:var(--glass-card2);color:var(--text);border:var(--border-strong)" onclick="openAboutEditorial()">📋 О редакции (полный документ)</button>
+    <div class="about-doc-btns">
+      <button class="about-doc-btn" onclick="openPrivacyPolicy()">📄 Политика конфиденциальности</button>
+      <button class="about-doc-btn" onclick="openAboutEditorial()">📋 О редакции (полный документ)</button>
     </div>
-    <!-- 3D карточки -->
-    <div class="showcase-3d" style="margin:0;padding:0 0 48px">
+    <div class="showcase-3d" style="margin:0;padding:0 0 40px">
       <div class="showcase-container">
         <div class="showcase-card" id="aboutCard1">
           <div class="showcase-icon">📰</div>
           <span class="showcase-badge">НОВОЕ ИЗДАНИЕ</span>
           <div class="showcase-title">The Tomsk Times</div>
-          <div class="showcase-text">Современная журналистика в сердце Сибири. Свежий взгляд на новости Томска и области.</div>
+          <div class="showcase-text">Современная журналистика в сердце Сибири. Мы начали свой путь в 2026 году.</div>
           <div class="showcase-stats">
             <div class="showcase-stat"><div class="showcase-stat-number">20+</div><div class="showcase-stat-label">новостей</div></div>
             <div class="showcase-stat"><div class="showcase-stat-number">24/7</div><div class="showcase-stat-label">онлайн</div></div>
@@ -1304,7 +1392,7 @@ body{
         <p>11.2. Во всем, что не урегулировано настоящей Политикой, Редакция и пользователь руководствуются действующим законодательством Российской Федерации.</p>
         <p>11.3. Все споры, возникающие между Редакцией и пользователем в связи с исполнением настоящей Политики, разрешаются путем переговоров. В случае недостижения согласия споры разрешаются в судебном порядке по месту нахождения Редакции в соответствии с процессуальным законодательством РФ.</p>
         <p>11.4. Признание судом какого-либо положения настоящей Политики недействительным не влечет за собой недействительность остальных положений.</p>
-        <p>11.5. По всем вопросам, связанным с реализацией настоящей Политики, пользователи могут обращаться в Редакцию через Telegram-бот (ссылка в разделе «Контакты») или по электронной почте: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1c6c6e756a7d7f655c6873716f77687571796f326e69">[email&#160;protected]</a></p>
+        <p>11.5. По всем вопросам, связанным с реализацией настоящей Политики, пользователи могут обращаться в Редакцию через Telegram-бот (ссылка в разделе «Контакты») или по электронной почте: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9eeeecf7e8fffde7deeaf1f3edf5eaf7f3fbedb0eceb">[email&#160;protected]</a></p>
         <p style="margin-top: 20px;">Дата вступления в силу: 8 марта 2026 года</p>
       </div>
     </div>
@@ -1395,9 +1483,9 @@ body{
         <p>Полное наименование: Редакция информационного ресурса The Tomsk Times (не является юридическим лицом, функционирует в статусе самозанятого / индивидуального предпринимателя)</p>
         <p>Контактные данные:</p>
         <p>Основной канал связи: Telegram-бот [Здесь будет ссылка на бота]<br>
-        Электронная почта для официальных обращений: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="98f1f6fef7d8ecf7f5ebf3ecf1f5fdebb6eaed">[email&#160;protected]</a><br>
-        Электронная почта для пресс-релизов и сотрудничества: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7c0c0e190f0f3c0813110f17081511190f520e09">[email&#160;protected]</a><br>
-        Электронная почта для вопросов конфиденциальности: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="83f3f1eaf5e2e0fac3f7eceef0e8f7eaeee6f0adf1f6">[email&#160;protected]</a></p>
+        Электронная почта для официальных обращений: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="20494e464f60544f4d534b54494d45530e5255">[email&#160;protected]</a><br>
+        Электронная почта для пресс-релизов и сотрудничества: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="12626077616152667d7f6179667b7f77613c6067">[email&#160;protected]</a><br>
+        Электронная почта для вопросов конфиденциальности: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fe8e8c97889f9d87be8a91938d958a97939b8dd08c8b">[email&#160;protected]</a></p>
         <p>Адрес местонахождения редакции: 634000, г. Томск, (фактический адрес для корреспонденции указывается при наличии)</p>
         <p>Режим работы редакции:</p>
         <p>Понедельник — пятница: 10:00 — 19:00<br>
@@ -1482,16 +1570,22 @@ const arts = [
 arts.forEach(a => { cmtStore[a.id] = (a.comments||[]).map(c=>({...c,replies:c.replies||[]})); });
 
 // ── PRELOADER ────────────────────────────────────
-window.addEventListener('load', ()=>{
-  setTimeout(()=>{
-    document.getElementById('preloader').classList.add('hidden');
+function hidePreloader(){
+  const p = document.getElementById('preloader');
+  if(p && !p.classList.contains('hidden')){
+    p.classList.add('hidden');
     document.body.style.overflow = '';
     init3D();
     renderGrid();
-    initRouter();
-  }, 1400);
-  document.body.style.overflow = 'hidden';
-});
+  }
+}
+// Запасной таймаут — снимет загрузку через 2.5с в любом случае
+const _preloaderFallback = setTimeout(hidePreloader, 2500);
+// При полной загрузке — через 1.4с
+window.addEventListener('load', ()=>{ clearTimeout(_preloaderFallback); setTimeout(hidePreloader, 1400); });
+// При загрузке DOM (быстрее) — через 800мс если load не успел
+document.addEventListener('DOMContentLoaded', ()=>{ setTimeout(()=>{ hidePreloader(); }, 800); });
+document.body.style.overflow = 'hidden';
 
 // ── CLOCK / DATE ─────────────────────────────────
 function updateClock(){
@@ -1515,8 +1609,6 @@ async function fetchCurrency(){
     ['eurRate'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=eV+' ₽';});
     const wU=document.getElementById('widgetUsd'),wE=document.getElementById('widgetEur');
     if(wU)wU.textContent=uV+' ₽'; if(wE)wE.textContent=eV+' ₽';
-    const wwU=document.getElementById('weatherWidgetUsd'),wwE=document.getElementById('weatherWidgetEur');
-    if(wwU)wwU.textContent=uV+' ₽'; if(wwE)wwE.textContent=eV+' ₽';
     const ud=(usd.Value-usd.Previous).toFixed(2), ed=(eur.Value-eur.Previous).toFixed(2);
     const uC=document.getElementById('usdChange'); if(uC){uC.textContent=(ud>0?'▲':'▼')+Math.abs(ud);uC.style.color=ud>0?'#34c759':'#ff453a';}
     const eC=document.getElementById('eurChange'); if(eC){eC.textContent=(ed>0?'▲':'▼')+Math.abs(ed);eC.style.color=ed>0?'#34c759':'#ff453a';}
@@ -1587,20 +1679,9 @@ window.addEventListener('scroll',()=>{
   document.getElementById('readingProgress').style.width = pct+'%';
 },{passive:true});
 
-// ── MOBILE NAV ────────────────────────────────────
-function initMobileNav(){
-  const bar = document.getElementById('mobTabbar');
-  if(bar) bar.style.display = window.innerWidth<=900 ? 'flex' : 'none';
-}
-initMobileNav();
-window.addEventListener('resize', initMobileNav);
+// ── MOBILE NAV — инициализация (логика в конце файла) ────────────
 
-function filterCatMob(cat, idx){
-  setMobTab(idx);
-  filterCat(cat, null);
-}
-
-// ── FILTER + GRID (ГЛАВНАЯ СТРАНИЦА) ──────────────
+// ── FILTER + GRID ─────────────────────────────────
 const gridObs = new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); gridObs.unobserve(e.target); } });
 },{threshold:0.06});
@@ -1812,119 +1893,119 @@ document.addEventListener('keydown',e=>{
   if(document.getElementById('pollOverlay').classList.contains('open')){closePoll();return;}
   if(document.getElementById('privacyModal').classList.contains('open')){closePrivacyModal();return;}
   if(document.getElementById('aboutModal').classList.contains('open')){closeAboutModal();return;}
-  closeSectionsDropdown();
-  closeMobSections();
+  closeDropdown();
+  closeMobSheet();
 });
 
-// ── HASH ROUTER — СТРАНИЦЫ ────────────────────────
+// ── ПЕРЕКЛЮЧЕНИЕ СТРАНИЦ ──────────────────────────
 const PAGES = ['home','news','weather','about'];
-let currentPage = 'home';
 
-function showPage(name){
+function showPage(name, btnEl) {
   if(!PAGES.includes(name)) name = 'home';
-  currentPage = name;
-  PAGES.forEach(p=>{
-    const el = document.getElementById('page-'+p);
-    if(el) el.style.display = p===name ? '' : 'none';
+
+  // Скрываем все страницы, показываем нужную
+  PAGES.forEach(p => {
+    const el = document.getElementById('page-' + p);
+    if(el) {
+      el.classList.toggle('active', p === name);
+    }
   });
-  // Активная кнопка в nav
-  ['navHome','navNews','navWeather','navAbout'].forEach(id=>{
-    const el = document.getElementById(id); if(!el) return;
-    const map = {navHome:'home',navNews:'news',navWeather:'weather',navAbout:'about'};
-    el.classList.toggle('active', map[id]===name);
-  });
-  document.getElementById('navSections')?.classList.remove('active');
-  closeSectionsDropdown();
-  // Обновить hash
-  location.hash = name==='home' ? '' : name;
-  window.scrollTo({top:0,behavior:'smooth'});
-  // Инициализация страниц
-  if(name==='news') renderNewsGrid();
-  if(name==='about') setTimeout(init3DAbout,100);
-  if(name==='weather'){
-    // Перезапустить погодный виджет если нужно
-    if(typeof __weatherwidget_init === 'function') __weatherwidget_init();
-    // Обновить курс на странице погоды
-    const u=document.getElementById('weatherWidgetUsd'), ev=document.getElementById('weatherWidgetEur');
-    const mainU=document.getElementById('widgetUsd'), mainE=document.getElementById('widgetEur');
-    if(u&&mainU) u.textContent=mainU.textContent;
-    if(ev&&mainE) ev.textContent=mainE.textContent;
+
+  // Активная кнопка в десктоп-нав
+  document.querySelectorAll('.nav-pills .npill').forEach(b => b.classList.remove('active'));
+  const map = {home:'navBtnHome', news:'navBtnNews', weather:'navBtnWeather', about:'navBtnAbout'};
+  const activeBtn = document.getElementById(map[name]);
+  if(activeBtn) activeBtn.classList.add('active');
+
+  closeDropdown();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+
+  // Инициализация страниц при первом показе
+  if(name === 'news') {
+    newsRenderGrid();
+  }
+  if(name === 'weather') {
+    // Обновляем курс на странице погоды
+    const u2 = document.getElementById('wUsd2');
+    const e2 = document.getElementById('wEur2');
+    const u1 = document.getElementById('widgetUsd');
+    const e1 = document.getElementById('widgetEur');
+    if(u2 && u1) u2.textContent = u1.textContent;
+    if(e2 && e1) e2.textContent = e1.textContent;
+    // Перезапуск виджета погоды
+    if(typeof __weatherwidget_init === 'function') {
+      try { __weatherwidget_init(); } catch(e) {}
+    }
+  }
+  if(name === 'about') {
+    setTimeout(init3DAbout, 100);
   }
 }
 
-// Читаем hash при загрузке
-function initRouter(){
-  const h = location.hash.replace('#','').trim();
-  showPage(PAGES.includes(h) ? h : 'home');
-}
-window.addEventListener('hashchange', ()=>{
-  const h = location.hash.replace('#','').trim();
-  showPage(PAGES.includes(h) ? h : 'home');
-});
-
-// ── SECTIONS DROPDOWN ─────────────────────────────
-function toggleSectionsDropdown(e){
+// ── DROPDOWN РАЗДЕЛОВ ────────────────────────────
+function toggleDropdown(e) {
   e && e.stopPropagation();
-  const menu = document.getElementById('sectionsMenu');
+  const menu = document.getElementById('sectionsDropdown');
   const isOpen = menu.classList.contains('open');
-  closeSectionsDropdown();
+  closeDropdown();
   if(!isOpen) menu.classList.add('open');
 }
-function closeSectionsDropdown(){
-  document.getElementById('sectionsMenu')?.classList.remove('open');
+function closeDropdown() {
+  document.getElementById('sectionsDropdown')?.classList.remove('open');
 }
-document.addEventListener('click', e=>{
-  if(!document.getElementById('navDropdown')?.contains(e.target)) closeSectionsDropdown();
+document.addEventListener('click', function(e) {
+  const wrap = document.getElementById('navDropdownWrap');
+  if(wrap && !wrap.contains(e.target)) closeDropdown();
 });
 
-function filterCatFromMenu(cat){
-  closeSectionsDropdown();
-  showPage('news');
-  newsFilterCat(cat);
-  // Активируем кнопку раздела
-  document.getElementById('navSections')?.classList.add('active');
-  ['navHome','navNews','navWeather','navAbout'].forEach(id=>document.getElementById(id)?.classList.remove('active'));
+function selectSection(cat) {
+  closeDropdown();
+  closeMobSheet();
+  showPage('news', null);
+  newsFilter(cat);
+  // Снимаем active со всех кнопок нава, Разделы остаются без active — это нормально
+  document.querySelectorAll('.nav-pills .npill').forEach(b => b.classList.remove('active'));
+  document.getElementById('navBtnSections')?.classList.add('active');
 }
 
-// ── MOBILE SECTIONS SHEET ─────────────────────────
-function toggleMobSections(){
-  const s = document.getElementById('mobSectionsSheet');
-  s.classList.toggle('open');
-  if(s.classList.contains('open')) document.body.style.overflow='hidden';
-  else document.body.style.overflow='';
+// ── МОБИЛЬНАЯ ШТОРКА ─────────────────────────────
+function openMobSheet() {
+  document.getElementById('mobSheetOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
-function closeMobSections(){
-  document.getElementById('mobSectionsSheet').classList.remove('open');
-  document.body.style.overflow='';
+function closeMobSheet() {
+  document.getElementById('mobSheetOverlay')?.classList.remove('open');
+  document.body.style.overflow = '';
 }
-
-// ── MOBILE TAB ACTIVE ─────────────────────────────
-function setMobTab(idx){
-  document.querySelectorAll('.mtab').forEach((b,i)=>b.classList.toggle('active', i===idx));
-}
-
-// ── NEWS PAGE GRID ─────────────────────────────────
-let newsCurrentCat = '';
-let newsVisibleCount = 18;
-
-function newsFilterCat(cat){
-  newsCurrentCat = cat;
-  newsVisibleCount = 18;
-  // Подсветка активного фильтра
-  document.querySelectorAll('#newsFilterBar .npill').forEach(b=>{
-    const t = b.textContent.trim();
-    b.classList.toggle('active', (cat===''&&t==='Все')||(cat!==''&&t===cat));
+function setMobActive(idx) {
+  document.querySelectorAll('.mob-tabbar .mtab').forEach((b, i) => {
+    b.classList.toggle('active', i === idx);
   });
+}
+
+// ── СТРАНИЦА НОВОСТЕЙ ────────────────────────────
+let newsCat = '';
+let newsVisible = 18;
+
+function newsFilter(cat) {
+  newsCat = cat;
+  newsVisible = 18;
   const titleEl = document.getElementById('newsPageTitle');
   if(titleEl) titleEl.textContent = cat || 'Все новости';
-  renderNewsGrid();
+  // Активная кнопка фильтра
+  document.querySelectorAll('#newsFilterBar .npill').forEach(b => {
+    const t = b.textContent.trim();
+    b.classList.toggle('active', (cat==='' && t==='Все') || (cat!=='' && t===cat));
+  });
+  newsRenderGrid();
 }
 
-function renderNewsGrid(){
-  const filtered = newsCurrentCat ? arts.filter(a=>a.cat===newsCurrentCat) : arts;
-  const toShow = filtered.slice(0, newsVisibleCount);
-  const grid = document.getElementById('newsGrid'); if(!grid) return;
-  grid.innerHTML = toShow.map((a,i)=>`
+function newsRenderGrid() {
+  const filtered = newsCat ? arts.filter(a => a.cat === newsCat) : arts;
+  const toShow = filtered.slice(0, newsVisible);
+  const grid = document.getElementById('newsGrid');
+  if(!grid) return;
+  grid.innerHTML = toShow.map((a, i) => `
     <div class="grid-art" onclick="openArticle(${a.id})" style="animation-delay:${i*0.03}s">
       <div class="grid-art-img-wrap">
         <img src="${IMG[a.id]||PLACEHOLDER}" alt="${a.title}" class="grid-art-img" loading="lazy" onerror="this.src='${PLACEHOLDER}'">
@@ -1942,26 +2023,43 @@ function renderNewsGrid(){
         </div>
       </div>
     </div>`).join('');
-  grid.querySelectorAll('.grid-art').forEach(el=>gridObs.observe(el));
-  const lmw = document.getElementById('newsLoadMoreWrap');
-  if(lmw) lmw.style.display = filtered.length>newsVisibleCount ? 'block' : 'none';
+  grid.querySelectorAll('.grid-art').forEach(el => gridObs.observe(el));
+  const lmw = document.getElementById('newsLoadWrap');
+  if(lmw) lmw.style.display = filtered.length > newsVisible ? 'block' : 'none';
 }
 
-function newsLoadMore(){ newsVisibleCount += 9; renderNewsGrid(); }
+function newsLoadMore() { newsVisible += 9; newsRenderGrid(); }
 
-// ── 3D ABOUT PAGE CARDS ───────────────────────────
-function init3DAbout(){
+// ── 3D О НАС ────────────────────────────────────
+function init3DAbout() {
   if(/Mobi|Android/i.test(navigator.userAgent)) return;
-  ['aboutCard1','aboutCard2'].forEach(id=>{
-    const card = document.getElementById(id); if(!card) return;
-    card.addEventListener('mousemove',e=>{
-      const r=card.getBoundingClientRect();
-      const rx=(e.clientY-r.top-r.height/2)/18, ry=(r.width/2-(e.clientX-r.left))/18;
-      card.style.transform=`rotateX(${rx}deg) rotateY(${ry}deg) scale(1.03) translateY(-8px)`;
+  ['aboutCard1','aboutCard2'].forEach(id => {
+    const card = document.getElementById(id);
+    if(!card) return;
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const rx = (e.clientY-r.top-r.height/2)/18;
+      const ry = (r.width/2-(e.clientX-r.left))/18;
+      card.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) scale(1.03) translateY(-8px)`;
     });
-    card.addEventListener('mouseleave',()=>card.style.transform='');
+    card.addEventListener('mouseleave', () => card.style.transform = '');
   });
 }
 
-// Запуск роутера
-initRouter();
+// ── МОБИЛЬНЫЙ НАВ ────────────────────────────────
+function initMobileNav(){
+  const bar = document.getElementById('mobTabbar');
+  if(bar) bar.style.display = window.innerWidth<=900 ? 'flex' : 'none';
+}
+initMobileNav();
+window.addEventListener('resize', initMobileNav);
+
+// Старый filterCatMob — оставляем для совместимости
+function filterCatMob(cat, idx){
+  setMobActive(idx);
+  filterCat(cat, null);
+}
+
+</script>
+</body>
+</html>
