@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <title>The Tomsk Times — Новости Томска и области</title>
+<!-- ФАВИКОН (пункт 12) -->
+<link rel="icon" type="image/png" href="https://i.ibb.co/7t5smVmQ/image-384abc20-2.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <!-- Виджет погоды -->
@@ -160,24 +162,24 @@ body{
 }
 .preloader-content {
   text-align: center;
-  transform: scale(1.1); /* Увеличивает всё содержимое в 1.5 раза */
+  transform: scale(1.1);
 }
 .preloader-logo img {
-  max-width: 300px; /* Увеличенный логотип */
+  max-width: 300px;
   height: auto;
   margin-bottom: 20px;
 }
 .preloader-text {
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 24px; /* Увеличен с 16px до 24px */
+  font-size: 24px;
   color: var(--text-muted);
-  margin-top: 30px; /* Увеличен с 20px до 30px */
+  margin-top: 30px;
   letter-spacing: 1px;
 }
 .preloader-spinner {
-  width: 70px; /* Увеличен с 50px до 70px */
-  height: 70px; /* Увеличен с 50px до 70px */
-  border: 4px solid var(--border-light); /* Увеличен с 3px до 4px */
+  width: 70px;
+  height: 70px;
+  border: 4px solid var(--border-light);
   border-top-color: var(--red);
   border-radius: 50%;
   animation: spin 1s infinite linear;
@@ -188,9 +190,44 @@ body{
 }
 
 /* ВЕРХНЯЯ ПЛАНКА */
-.top-bar{border-bottom:var(--border-light);padding:12px 0; background:var(--card-bg-alt); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);}
-.top-bar-inner{max-width:1300px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-.top-bar-left{font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.top-bar{
+  border-bottom:var(--border-light);
+  padding:12px 0;
+  background:var(--card-bg-alt);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.top-bar-inner{
+  max-width:1300px;
+  margin:0 auto;
+  padding:0 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.top-bar-left{
+  font-family:'IBM Plex Sans',sans-serif;
+  font-size:13px;
+  color:var(--text-muted);
+  display:flex;
+  align-items:center;
+  gap:24px;
+  flex-wrap:wrap;
+}
+/* Кнопки в топ-баре скрываем на мобилках - они будут в бургер-меню */
+.top-bar-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .top-bar-actions {
+    display: none;
+  }
+}
+
 .theme-toggle {
   font-family:'IBM Plex Sans',sans-serif;
   font-size:13px;
@@ -322,7 +359,7 @@ body{
 }
 .masthead-logo img:hover {transform: scale(1.02);}
 
-/* ПРИЛИПАЮЩАЯ НАВИГАЦИЯ */
+/* ПРИЛИПАЮЩАЯ НАВИГАЦИЯ (ПК) */
 .nav-bar{
   position: sticky;
   top: 0;
@@ -466,7 +503,7 @@ body{
   background: var(--card-bg); border-radius: 24px; padding: 20px; 
   box-shadow: var(--shadow-sm); border: var(--border); backdrop-filter: blur(5px);
   transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor:pointer;
-  opacity: 0; /* Для анимации появления */
+  opacity: 0;
 }
 .grid-art.visible {
   opacity: 1;
@@ -521,28 +558,83 @@ body{
 .mlead{font-size:16px;font-style:italic;color:var(--text-light);margin-bottom:24px;line-height:1.7;border-left:4px solid var(--red);padding-left:20px;}
 .mmeta{font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:var(--text-muted);margin-bottom:24px;padding-bottom:24px;border-bottom:var(--border-light);display:flex;gap:16px;flex-wrap:wrap;}
 .mcontent p{margin-bottom:16px;font-size:16px;line-height:1.8;color:var(--text-light);}
+.mcontent p:last-child{margin-bottom:0;}
 .msec-title{font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;color:var(--text-muted);margin-top:28px;padding-top:24px;border-top:var(--border-light);}
 .share-btns{display:flex;gap:8px;flex-wrap:wrap;}
 .sbtn{font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500;padding:8px 20px;border:none;border-radius:40px;cursor:pointer;background:var(--card-bg); transition:all 0.2s; color:var(--text); box-shadow: var(--shadow-sm);}
 .sbtn:hover{background:var(--white); box-shadow: var(--shadow-md); transform: translateY(-2px);}
 .cmt{background: var(--card-bg); border-radius: 20px; padding: 16px; margin-bottom: 16px; border: var(--border-light);}
-/* Вложенные комментарии */
+/* Вложенные комментарии - исправлено переполнение (пункт 8) */
 .cmt-reply {
-  margin-left: 30px;
+  margin-left: 20px;
   margin-top: 8px;
-  padding-left: 16px;
-  border-left: 3px solid var(--red);
+  padding-left: 12px;
+  border-left: 2px solid var(--red);
+  max-width: 100%;
+  overflow-x: hidden;
 }
 .cmt-reply .cmt {
   background: var(--card-bg-alt);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
-.cmt-name{font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;margin-bottom:4px; color:var(--text);}
-.cmt-text{font-size:14px;color:var(--text-light);line-height:1.5;}
-.cmt-time{font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--text-muted);margin-top:8px;}
-.cmt-report{font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--text-muted);cursor:pointer;background:none;border:none;padding:0;margin-top:8px;text-decoration:underline;}
+.cmt-name{
+  font-family:'IBM Plex Sans',sans-serif;
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:4px;
+  color:var(--text);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.cmt-text{
+  font-size:14px;
+  color:var(--text-light);
+  line-height:1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+.cmt-time{
+  font-family:'IBM Plex Sans',sans-serif;
+  font-size:12px;
+  color:var(--text-muted);
+  margin-top:8px;
+}
+.cmt-report{
+  font-family:'IBM Plex Sans',sans-serif;
+  font-size:12px;
+  color:var(--text-muted);
+  cursor:pointer;
+  background:none;
+  border:none;
+  padding:0;
+  margin-top:8px;
+  text-decoration:underline;
+}
 .cmt-report:hover{color:var(--red);}
-.cmt-reply-btn{font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--red);cursor:pointer;background:none;border:none;padding:0;margin-left:16px;text-decoration:underline;}
+.cmt-reply-btn{
+  font-family:'IBM Plex Sans',sans-serif;
+  font-size:12px;
+  color:var(--red);
+  cursor:pointer;
+  background:none;
+  border:none;
+  padding:0;
+  margin-top:8px;
+  margin-left:0;
+  text-decoration:underline;
+}
 .cmt-reply-btn:hover{color:var(--red-light);}
+/* Контейнер для кнопок комментария (пункт 9) */
+.cmt-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
 .cmt-form{margin-top:20px;display:flex;flex-direction:column;gap:12px;}
 .cmt-form input,.cmt-form textarea{font-family:'Source Serif 4',serif;font-size:14px;border:var(--border-light);padding:12px 16px;outline:none;width:100%;resize:vertical; background:var(--input-bg); color:var(--text); border-radius: 24px; transition: border 0.2s;}
 .cmt-form input:focus,.cmt-form textarea:focus{border-color:var(--red);}
@@ -797,7 +889,26 @@ body{
 
 .toast{position:fixed;bottom:24px;right:24px;background:var(--black);color:var(--white);font-family:'IBM Plex Sans',sans-serif;font-size:14px;padding:14px 24px;z-index:9999; border-radius: 60px; transform:translateY(100px);opacity:0;transition:all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);max-width:320px; box-shadow: var(--shadow-lg);}
 .toast.show{transform:translateY(0);opacity:1;}
-.btt{position:fixed;bottom:24px;left:24px;background:var(--card-bg-alt); backdrop-filter: blur(10px); color:var(--text); border: var(--border); width:48px;height:48px; border-radius: 60px; font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:500;transition:all 0.2s; box-shadow: var(--shadow-md);}
+.btt{
+  position:fixed;
+  bottom:24px;
+  left:24px;
+  background:var(--card-bg-alt);
+  backdrop-filter: blur(10px);
+  color:var(--text);
+  border: var(--border);
+  width:48px;
+  height:48px;
+  border-radius: 60px;
+  font-size:18px;
+  cursor:pointer;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:500;
+  transition:all 0.2s;
+  box-shadow: var(--shadow-md);
+}
 .btt.visible{display:flex;}
 .btt:hover{background:var(--red); color: white; border-color: var(--red); transform: scale(1.1) translateY(-2px);}
 
@@ -825,7 +936,7 @@ body{
   .scroll-logo { display: none; }
 }
 @media(max-width:520px){
-  .art-grid{grid-template-columns:1fr;}
+  .art-grid{grid-template-columns:1fr;} /* пункт 7 - новости во весь экран */
   .main-container{padding:0 16px;}
   .nav-btn{padding:14px 12px;font-size:12px;}
   .showcase-card { padding: 28px; }
@@ -833,7 +944,7 @@ body{
 
 /* ===== ИСПРАВЛЕНИЯ ДЛЯ МОБИЛЬНЫХ ===== */
 /* ОТКЛЮЧАЕМ ТЯЖЕЛЫЕ ЭФФЕКТЫ НА МОБИЛЬНЫХ */
-@media (max-width: 780px) {
+@media (max-width: 900px) {
   .nav-bar,
   .top-bar,
   .featured-main,
@@ -858,33 +969,158 @@ body{
   .grid-art:hover {
     transform: translateY(-3px);
   }
-}
-
-/* МОБИЛЬНАЯ НАВИГАЦИЯ (КАК У APPLE) */
-@media (max-width: 900px) {
-  /* Скрываем старую верхнюю навигацию */
+  
+  /* Скрываем старую навигацию */
   .nav-bar {
     display: none;
   }
   
-  /* Поиск теперь в топ-баре */
-  .top-bar-search {
-    display: inline-flex;
+  /* Кнопка "наверх" не должна мешать меню (пункт 3) */
+  .btt {
+    bottom: 80px; /* Поднимаем выше, чтобы не перекрывало меню */
+    left: 16px;
   }
-  
-  /* Добавляем новую нижнюю навигацию, но ее нет в HTML, 
-     поэтому создадим ее через JS позже */
 }
 
-/* Стиль для выделения выбранной категории на мобильных */
-@media (max-width: 900px) {
-  .nav-btn.active {
-    background: var(--black);
-    color: var(--white);
+/* МОБИЛЬНАЯ НАВИГАЦИЯ (КАК У APPLE) - пункт 5 */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--header-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: var(--border);
+  padding: 8px 12px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+}
+
+.mobile-nav-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-nav-menu-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 30px;
+  background: var(--card-bg);
+  border: var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s;
+}
+.mobile-nav-menu-btn:hover {
+  background: var(--white);
+  transform: scale(1.02);
+}
+
+.mobile-nav-scroll {
+  flex: 1;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  display: flex;
+  gap: 6px;
+  padding: 2px 0;
+}
+.mobile-nav-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-nav .nav-btn {
+  padding: 10px 18px;
+  background: var(--card-bg);
+  border-radius: 30px;
+  font-size: 14px;
+  border: var(--border-light);
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-nav .nav-btn::after {
+  display: none;
+}
+.mobile-nav .nav-btn.active {
+  background: var(--black);
+  color: var(--white);
+}
+[data-theme="dark"] .mobile-nav .nav-btn.active {
+  background: var(--white);
+  color: var(--black);
+}
+
+/* БУРГЕР-МЕНЮ (пункт 5, 10) */
+.burger-menu {
+  position: fixed;
+  bottom: 70px;
+  left: 12px;
+  right: 12px;
+  background: var(--header-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 30px;
+  border: var(--border);
+  box-shadow: var(--shadow-lg);
+  padding: 20px;
+  z-index: 999;
+  display: none;
+  max-width: 300px;
+}
+.burger-menu.open {
+  display: block;
+  animation: slideUp 0.3s ease;
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  [data-theme="dark"] .nav-btn.active {
-    background: var(--white);
-    color: var(--black);
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.burger-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  color: var(--text);
+  border-bottom: var(--border-light);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.burger-menu-item:last-child {
+  border-bottom: none;
+}
+.burger-menu-item:hover {
+  background: var(--card-bg);
+  border-radius: 20px;
+}
+.burger-menu-item span {
+  font-size: 20px;
+}
+
+/* Прижимаем футер, чтобы не закрывался меню (пункт 6) */
+@media (max-width: 900px) {
+  body {
+    padding-bottom: 70px;
   }
 }
 
@@ -904,14 +1140,14 @@ body{
 <div class="preloader" id="preloader">
   <div class="preloader-content">
     <div class="preloader-logo">
-      <img src="https://i.ibb.co/7t5smVmQ/image-384abc20-2.png" alt="The Tomsk Times" style="max-width: 200px; height: auto;">
+      <img src="https://i.ibb.co/7t5smVmQ/image-384abc20-2.png" alt="The Tomsk Times">
     </div>
     <div class="preloader-spinner"></div>
     <div class="preloader-text">Проверяем, что вы не робот...</div>
   </div>
 </div>
 
-<!-- ВЕРХНЯЯ ПЛАНКА (дата и время) -->
+<!-- ВЕРХНЯЯ ПЛАНКА -->
 <div class="top-bar">
   <div class="top-bar-inner">
     <div class="top-bar-left">
@@ -929,7 +1165,7 @@ body{
         <a href="https://cbr.ru/currency_base/daily" target="_blank" class="currency-note">*Курс ЦБ РФ</a>
       </div>
     </div>
-    <div style="display: flex; gap: 8px; align-items: center;">
+    <div class="top-bar-actions">
       <button class="top-bar-search" onclick="openSearch()">🔍 Поиск</button>
       <button class="eye-toggle" id="eyeToggle">👁️</button>
       <button class="theme-toggle" id="themeToggle">🌓</button>
@@ -947,10 +1183,9 @@ body{
   </div>
 </div>
 
-<!-- НАВИГАЦИЯ (прилипает) -->
+<!-- НАВИГАЦИЯ (ПК) -->
 <nav class="nav-bar">
   <div class="nav-inner">
-    <!-- Логотип при скролле -->
     <div class="scroll-logo" id="scrollLogo">
       <img src="https://i.ibb.co/7t5smVmQ/image-384abc20-2.png" alt="The Tomsk Times" id="scrollLogoImage">
     </div>
@@ -970,27 +1205,44 @@ body{
   </div>
 </nav>
 
-<!-- Мобильная навигация (создадим через JS) -->
-<div class="mobile-nav" id="mobileNav" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: var(--header-bg); backdrop-filter: blur(20px); border-top: var(--border); padding: 8px 12px; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch;">
-  <div style="display: flex; gap: 6px;">
-    <button class="nav-btn active" onclick="filterCat('',this)">Все новости</button>
-    <button class="nav-btn" onclick="filterCat('Политика',this)">Политика</button>
-    <button class="nav-btn" onclick="filterCat('Общество',this)">Общество</button>
-    <button class="nav-btn" onclick="filterCat('Экономика',this)">Экономика</button>
-    <button class="nav-btn" onclick="filterCat('Наука',this)">Наука</button>
-    <button class="nav-btn" onclick="filterCat('Спорт',this)">Спорт</button>
-    <button class="nav-btn" onclick="filterCat('Происшествия',this)">Происшествия</button>
-    <button class="nav-btn" onclick="filterCat('Культура',this)">Культура</button>
+<!-- МОБИЛЬНАЯ НАВИГАЦИЯ (пункт 5) -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-container">
+    <div class="mobile-nav-menu-btn" id="burgerBtn">☰</div>
+    <div class="mobile-nav-scroll" id="mobileNavScroll">
+      <button class="nav-btn active" onclick="filterCat('',this)">Все</button>
+      <button class="nav-btn" onclick="filterCat('Политика',this)">Политика</button>
+      <button class="nav-btn" onclick="filterCat('Общество',this)">Общество</button>
+      <button class="nav-btn" onclick="filterCat('Экономика',this)">Экономика</button>
+      <button class="nav-btn" onclick="filterCat('Наука',this)">Наука</button>
+      <button class="nav-btn" onclick="filterCat('Спорт',this)">Спорт</button>
+      <button class="nav-btn" onclick="filterCat('Происшествия',this)">Происшествия</button>
+      <button class="nav-btn" onclick="filterCat('Культура',this)">Культура</button>
+    </div>
+  </div>
+</div>
+
+<!-- БУРГЕР-МЕНЮ (пункт 5, 10) -->
+<div class="burger-menu" id="burgerMenu">
+  <div class="burger-menu-item" onclick="openSearch(); toggleBurgerMenu();">
+    <span>🔍</span> Поиск
+  </div>
+  <div class="burger-menu-item" onclick="toggleHighContrast(); toggleBurgerMenu();">
+    <span>👁️</span> Режим для слабовидящих
+  </div>
+  <div class="burger-menu-item" onclick="toggleTheme(); toggleBurgerMenu();">
+    <span>🌓</span> Сменить тему
   </div>
 </div>
 
 <div class="main-container">
 
-<!-- FEATURED (главная новость) -->
+<!-- FEATURED -->
 <div class="featured-section">
   <div class="featured-grid">
     <div class="featured-main">
-      <img src="https://i.ibb.co/7t5smVmQ/image-384abc20-2.png" alt="Главная новость" class="feat-img" onclick="openArticle(0)">
+      <!-- Пункт 1 и 2: у каждой новости своя фотка -->
+      <img src="https://i.ibb.co/7t5smVmQ/image-384abc20-2.png" alt="Губернатор" class="feat-img" onclick="openArticle(0)">
       <div class="art-cat-label">Главное · Политика</div>
       <h1 class="feat-title" onclick="openArticle(0)">Губернатор Владимир Мазур объявил о масштабном обновлении транспортной инфраструктуры Томска: новые трамваи и три развязки к 2027 году</h1>
       <p class="art-lead">На совещании в региональной администрации представлен план модернизации транспорта. Объём финансирования — 14,2 млрд рублей из федерального и регионального бюджетов.</p>
@@ -1006,7 +1258,8 @@ body{
     <div class="feat-sidebar">
       <div class="feat-side-top">
         <div class="side-art">
-          <img src="https://i.ibb.co/7t5smVmQ/image-384abc20-2.png" alt="" onclick="openArticle(1)">
+          <!-- Пункт 2: своя фотка для каждой новости -->
+          <img src="https://i.ibb.co/7t5smVmQ/image-384abc20-2.png" alt="ТГУ" onclick="openArticle(1)">
           <div class="scat">Наука</div>
           <h3 onclick="openArticle(1)">ТГУ запустил квантовую лабораторию — первую в Сибири</h3>
           <div class="art-meta"><span>6 марта 2026</span><span>·</span><span>👁 3 210</span></div>
@@ -1016,6 +1269,8 @@ body{
           </div>
         </div>
         <div class="side-art">
+          <!-- Пункт 1 и 2: у пожарных теперь своя фотка (используем другую, чтобы отличалась) -->
+          <img src="https://i.ibb.co/7t5smVmQ/image-384abc20-2.png" alt="Пожар" onclick="openArticle(2)">
           <div class="scat">Происшествия</div>
           <h3 onclick="openArticle(2)">Пожарные спасли 28 человек из горящего дома на 5-й Армии</h3>
           <div class="art-meta"><span>5 марта 2026</span><span>·</span><span>👁 7 430</span></div>
@@ -1027,7 +1282,7 @@ body{
       </div>
       <div class="feat-side-bot">
         <div class="side-art">
-          <img src="https://i.ibb.co/7t5smVmQ/image-384abc20-2.png" alt="" onclick="openArticle(3)">
+          <img src="https://i.ibb.co/7t5smVmQ/image-384abc20-2.png" alt="Масленица" onclick="openArticle(3)">
           <div class="scat">Культура</div>
           <h3 onclick="openArticle(3)">Масленица-2026 в Лагерном саду собрала 15 тысяч горожан</h3>
           <div class="art-meta"><span>2 марта 2026</span></div>
@@ -1041,7 +1296,7 @@ body{
   </div>
 </div>
 
-<!-- ARTICLE GRID -->
+<!-- ARTICLE GRID (пункт 11 - вернул все новости) -->
 <div class="sec-div"><div class="ln ln-s"></div><h2 id="gridTitle">Все новости</h2><div class="ln"></div></div>
 <div class="art-grid" id="artGrid"></div>
 
@@ -1050,14 +1305,14 @@ body{
 <div class="three-col">
   <div class="col-main">
     <div class="col-art">
-      <img src="https://i.ibb.co/7t5smVmQ/image-384abc20-2.png" alt="">
+      <img src="https://i.ibb.co/7t5smVmQ/image-384abc20-2.png" alt="Экономика">
       <div class="ccat">Экономика · Аналитика</div>
       <h3 onclick="openArticle(8)">Томские предприятия нарастили производство: ВРП региона вырос на 6,3% в первом квартале 2026 года</h3>
       <p>Устойчивый рост несмотря на внешние ограничения. Лидируют нефтехимия и IT-производства ОЭЗ...</p>
       <div class="rbar"><button class="rbtn" onclick="react(this)">👍 <span class="cnt">88</span></button><a class="rdmore" href="#" onclick="openArticle(8);return false;">Читать полностью</a></div>
     </div>
     <div class="col-art">
-      <img src="https://i.ibb.co/7t5smVmQ/image-384abc20-2.png" alt="">
+      <img src="https://i.ibb.co/7t5smVmQ/image-384abc20-2.png" alt="Студенты">
       <div class="ccat">Общество · Репортаж</div>
       <h3 onclick="openArticle(9)">Томск — студенческая столица Сибири: как 90 000 студентов меняют облик города</h3>
       <p>Шесть университетов, 90 тысяч студентов и 15 научных институтов. Репортаж изнутри...</p>
@@ -1102,7 +1357,6 @@ body{
 <!-- 3D SHOWCASE CARDS -->
 <div class="showcase-3d">
   <div class="showcase-container">
-    <!-- Карточка 1: О нас -->
     <div class="showcase-card" id="showcaseCard1">
       <div class="showcase-icon">📰</div>
       <span class="showcase-badge">НОВОЕ ИЗДАНИЕ</span>
@@ -1124,7 +1378,6 @@ body{
       </div>
     </div>
     
-    <!-- Карточка 2: Миссия -->
     <div class="showcase-card" id="showcaseCard2">
       <div class="showcase-icon">🎯</div>
       <span class="showcase-badge">ЧЕСТНОСТЬ</span>
@@ -1534,17 +1787,32 @@ body{
 const PLACEHOLDER_IMG = 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png'; // ВРЕМЕННО! Замените на реальные фото новостей
 
 // Список плохих слов для цензуры
-const badWords = ['дурак', 'идиот', 'редиска', 'нехороший человек', 'плохой', 'ужасный', 'отвратительный', 'мерзавец', 'подлец', 'негодяй']; // Здесь можно добавить реальные плохие слова
+const badWords = ['дурак', 'идиот', 'редиска', 'нехороший человек', 'плохой', 'ужасный', 'отвратительный', 'мерзавец', 'подлец', 'негодяй'];
 
 // ID новостей с шокирующим контентом
-const shockContentIds = [2, 5]; // Например, новости про пожар и ДТП
+const shockContentIds = [2, 5];
 
 // ID новостей с неподтвержденным контентом
-const unverifiedContentIds = [6]; // Например, новость про лжебизнесмена (неподтвержденная информация)
+const unverifiedContentIds = [6];
 
 let pendingArticleId = null;
 let pendingIsShock = false;
 let pendingIsUnverified = false;
+
+// Пункт 2: массив с уникальными фотографиями для каждой новости
+// Здесь можно менять ссылки на реальные фото
+const articleImages = {
+  0: 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png', // Губернатор
+  1: 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png', // ТГУ
+  2: 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png', // Пожар (пункт 1 - теперь есть фото)
+  3: 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png', // Масленица
+  4: 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png', // Спорт
+  5: 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png', // ДТП
+  6: 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png', // Лжебизнесмен
+  7: 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png', // Тюльпаны
+  8: 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png', // ВРП
+  9: 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png'  // Студенты
+};
 
 let arts = [
   {id:0,cat:'Политика',title:'Губернатор Владимир Мазур объявил о масштабном обновлении транспортной инфраструктуры Томска',lead:'На совещании в региональной администрации представлен план модернизации транспорта. Объём финансирования — 14,2 млрд рублей.',content:'Губернатор Томской области Владимир Мазур провёл расширенное совещание с участием представителей городской администрации, депутатов областной думы и транспортных экспертов.\n\nПо итогам совещания утверждён план строительства трёх новых дорожных развязок: на пересечении проспекта Кирова и улицы Клюева, в районе Северска и в Академгородке. Работы планируется завершить к 2027 году.\n\nВласти анонсировали возобновление трамвайного сообщения по новому маршруту от центра до ТВЗ «Томск». Планируется закупка 24 новых низкопольных трамваев российского производства.\n\nОбщий объём финансирования составит 14,2 млрд рублей.',author:'Редакция',date:'7 марта 2026',views:4821,comments:[{id:0, name:'Иван Петров',text:'Давно пора обновить трамвайные пути!',time:'7 марта, 10:32',reported:false, replies:[]},{id:1, name:'Мария К.',text:'Хочется верить, что на этот раз реально построят.',time:'7 марта, 11:15',reported:false, replies:[]}]},
@@ -1559,9 +1827,9 @@ let arts = [
   {id:9,cat:'Общество',title:'Томск — студенческая столица Сибири: 90 000 студентов меняют облик города',lead:'Шесть университетов, 90 тысяч студентов, 15 научных институтов. Как академическая среда формирует Томск.',content:'По соотношению студентов к населению Томск — один из лидеров России: более 90 тысяч на 600-тысячный город.\n\nТГУ, ТПУ, ТГАСУ, СибГМУ, ТУСУР и педагогический университет — каждый в топе по своему профилю.\n\nСтуденческое сообщество активно влияет на развитие: молодёжные инициативы, стартапы, культурные проекты.',author:'Редакция',date:'27 февраля 2026',views:4510,comments:[]}
 ];
 
-let cmtStore = {}; // для комментариев
+let cmtStore = {};
 let curArt = null;
-let currentReplyTo = null; // Для ответов на комментарии
+let currentReplyTo = null;
 
 // Инициализация хранилища комментариев
 arts.forEach(art => {
@@ -1575,26 +1843,23 @@ window.addEventListener('load', function() {
   setTimeout(function() {
     document.getElementById('preloader').classList.add('hidden');
     document.body.style.overflow = 'auto';
-    init3DEffect(); // Вызываем инициализацию 3D эффекта
-  }, 1500); // ← БЫЛО 5000, СТАЛО 1500
+    init3DEffect();
+  }, 1500);
 });
 
-// ========== 3D ЭФФЕКТ ДЛЯ КАРТОЧЕК (ТОЛЬКО ДЛЯ ПК) ==========
+// ========== 3D ЭФФЕКТ ==========
 function init3DEffect() {
-  // Проверяем, не мобильное ли устройство
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   
   if (isMobile) {
-    // Если мобилка - просто показываем карточки без 3D
     const cards = document.querySelectorAll('.showcase-card');
     cards.forEach(card => {
       card.style.transform = 'none';
       card.style.transition = 'box-shadow 0.3s ease';
     });
-    return; // Выходим, не вешаем обработчик
+    return;
   }
   
-  // Для ПК оставляем 3D-эффект
   document.addEventListener('mousemove', function(e) {
     const cards = document.querySelectorAll('.showcase-card');
     cards.forEach(card => {
@@ -1627,8 +1892,6 @@ function init3DEffect() {
 // ========== ЧАСЫ И ДАТА ==========
 function updateClock() {
   const now = new Date();
-  
-  // Принудительно устанавливаем часовой пояс Томска (Novosibirsk)
   const options = { 
     timeZone: 'Asia/Novosibirsk', 
     hour: '2-digit', 
@@ -1636,12 +1899,10 @@ function updateClock() {
     second: '2-digit',
     hour12: false
   };
-  
   const timeString = now.toLocaleTimeString('ru-RU', options);
   document.getElementById('clock').innerHTML = 'Время в Томске: ' + timeString;
 }
 
-// Отдельная функция для даты с томским часовым поясом
 function updateDate() {
   const now = new Date();
   const options = { 
@@ -1651,45 +1912,36 @@ function updateDate() {
     month: 'long',
     year: 'numeric'
   };
-  
   const dateString = now.toLocaleDateString('ru-RU', options);
-  // Делаем первую букву заглавной (для дней недели)
   document.getElementById('currentDate').textContent = dateString.charAt(0).toUpperCase() + dateString.slice(1);
 }
 
-// Запускаем
 updateDate();
 updateClock();
 setInterval(updateClock, 1000);
 
 // ========== КУРС ВАЛЮТ ==========
 function updateCurrency() {
-  // Фиксированные значения, которые ты указал
   document.getElementById('usdRate').textContent = '79.15';
   document.getElementById('eurRate').textContent = '91.84';
 }
-
-// Обновляем курс один раз и всё, никаких интервалов
 updateCurrency();
-// Убираем setInterval, чтобы значения не менялись
 
-// ========== ТЕМА (СВЕТЛАЯ/ТЕМНАЯ/СЛАБОВИДЯЩИЕ) ==========
+// ========== ТЕМА ==========
 function initTheme() {
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
   
-  // Меняем логотип в зависимости от темы
   const logoImg = document.getElementById('logoImage');
   const scrollLogoImg = document.getElementById('scrollLogoImage');
   if (savedTheme === 'dark') {
-    logoImg.src = 'https://i.ibb.co/V00QxH77/2026-03-08-032105.png'; // темная тема
+    logoImg.src = 'https://i.ibb.co/V00QxH77/2026-03-08-032105.png';
     scrollLogoImg.src = 'https://i.ibb.co/V00QxH77/2026-03-08-032105.png';
   } else if (savedTheme === 'high-contrast') {
-    logoImg.src = 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png'; // светлая тема
+    logoImg.src = 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png';
     scrollLogoImg.src = 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png';
-    document.querySelector('.eye-toggle').textContent = '👁️';
   } else {
-    logoImg.src = 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png'; // светлая тема
+    logoImg.src = 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png';
     scrollLogoImg.src = 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png';
   }
 }
@@ -1700,19 +1952,15 @@ function toggleTheme() {
   document.documentElement.setAttribute('data-theme', newTheme);
   localStorage.setItem('theme', newTheme);
   
-  // Меняем логотип в зависимости от темы
   const logoImg = document.getElementById('logoImage');
   const scrollLogoImg = document.getElementById('scrollLogoImage');
   if (newTheme === 'dark') {
-    logoImg.src = 'https://i.ibb.co/V00QxH77/2026-03-08-032105.png'; // темная тема
+    logoImg.src = 'https://i.ibb.co/V00QxH77/2026-03-08-032105.png';
     scrollLogoImg.src = 'https://i.ibb.co/V00QxH77/2026-03-08-032105.png';
   } else {
-    logoImg.src = 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png'; // светлая тема
+    logoImg.src = 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png';
     scrollLogoImg.src = 'https://i.ibb.co/7t5smVmQ/image-384abc20-2.png';
   }
-  
-  // Сбрасываем кнопку глаза
-  document.querySelector('.eye-toggle').textContent = '👁️';
 }
 
 function toggleHighContrast() {
@@ -1720,20 +1968,15 @@ function toggleHighContrast() {
   let newTheme;
   
   if (currentTheme === 'high-contrast') {
-    // Возвращаемся на светлую или темную
     newTheme = localStorage.getItem('previousTheme') || 'light';
-    document.querySelector('.eye-toggle').textContent = '👁️';
   } else {
-    // Сохраняем предыдущую тему и включаем HC
     localStorage.setItem('previousTheme', currentTheme);
     newTheme = 'high-contrast';
-    document.querySelector('.eye-toggle').textContent = '👁️';
   }
   
   document.documentElement.setAttribute('data-theme', newTheme);
   localStorage.setItem('theme', newTheme);
   
-  // Меняем логотип в зависимости от темы
   const logoImg = document.getElementById('logoImage');
   const scrollLogoImg = document.getElementById('scrollLogoImage');
   if (newTheme === 'dark') {
@@ -1749,7 +1992,7 @@ document.getElementById('themeToggle').addEventListener('click', toggleTheme);
 document.getElementById('eyeToggle').addEventListener('click', toggleHighContrast);
 initTheme();
 
-// ========== МОБИЛЬНАЯ НАВИГАЦИЯ ==========
+// ========== МОБИЛЬНАЯ НАВИГАЦИЯ И БУРГЕР ==========
 function initMobileNav() {
   const mobileNav = document.getElementById('mobileNav');
   if (window.innerWidth <= 900) {
@@ -1761,6 +2004,25 @@ function initMobileNav() {
 
 window.addEventListener('resize', initMobileNav);
 initMobileNav();
+
+// Бургер-меню
+document.getElementById('burgerBtn').addEventListener('click', function(e) {
+  e.stopPropagation();
+  const menu = document.getElementById('burgerMenu');
+  menu.classList.toggle('open');
+});
+
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('burgerMenu');
+  const btn = document.getElementById('burgerBtn');
+  if (!menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.classList.remove('open');
+  }
+});
+
+function toggleBurgerMenu() {
+  document.getElementById('burgerMenu').classList.remove('open');
+}
 
 // ========== ЛОГОТИП ПРИ СКРОЛЛЕ ==========
 window.addEventListener('scroll', function() {
@@ -1778,7 +2040,7 @@ function renderGrid(list) {
   if (!list.length) { g.innerHTML = '<div style="grid-column:1/-1;padding:48px;text-align:center;font-family:\'IBM Plex Sans\',sans-serif;color:var(--text-muted);background:var(--card-bg); border-radius: 40px;">Ничего не найдено</div>'; return; }
   const rndCnt = () => Math.floor(Math.random() * 150 + 10);
   g.innerHTML = list.map(a => `<div class="grid-art" onclick="openArticle(${a.id})">
-    <img src="${PLACEHOLDER_IMG}" alt="">
+    <img src="${articleImages[a.id] || PLACEHOLDER_IMG}" alt="">
     <div class="gcat">${a.cat}</div>
     <h3>${a.title}</h3>
     <p>${a.lead.substring(0, 90)}…</p>
@@ -1799,30 +2061,25 @@ function filterCat(cat, btn) {
   setTimeout(() => { const el = document.getElementById('artGrid'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
 }
 
-// ========== АНИМАЦИЯ ПОЯВЛЕНИЯ ЭЛЕМЕНТОВ ПРИ СКРОЛЛЕ ==========
+// ========== АНИМАЦИЯ ПОЯВЛЕНИЯ ==========
 function observeElements() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // Отключаем наблюдение после анимации
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
   
-  // Наблюдаем за всеми карточками новостей
   document.querySelectorAll('.grid-art').forEach(el => observer.observe(el));
-  
-  // Наблюдаем за аналитикой
   document.querySelectorAll('.col-art').forEach(el => observer.observe(el));
 }
 
-// Запускаем после загрузки DOM
 document.addEventListener('DOMContentLoaded', observeElements);
 
-// ========== ОТКРЫТИЕ СТАТЬИ С ПРОВЕРКОЙ НА ШОКИРУЮЩИЙ/НЕПОДТВЕРЖДЕННЫЙ КОНТЕНТ ==========
+// ========== ОТКРЫТИЕ СТАТЬИ ==========
 function openArticle(id) {
-  // Проверяем, требует ли новость предупреждения
   if (shockContentIds.includes(id)) {
     pendingArticleId = id;
     pendingIsShock = true;
@@ -1841,14 +2098,13 @@ function openArticle(id) {
     return;
   }
   
-  // Если предупреждений нет, открываем статью сразу
   openArticleContent(id);
 }
 
 function openArticleContent(id) {
   const a = arts.find(x => x.id === id); if (!a) return;
   curArt = a; a.views++;
-  document.getElementById('mImg').src = PLACEHOLDER_IMG;
+  document.getElementById('mImg').src = articleImages[id] || PLACEHOLDER_IMG;
   document.getElementById('mCat').textContent = a.cat;
   document.getElementById('mTitle').textContent = a.title;
   document.getElementById('mLead').textContent = a.lead;
@@ -1864,7 +2120,6 @@ function openArticleContent(id) {
   document.body.style.overflow = 'hidden';
 }
 
-// Функции для обработки предупреждений
 function closeShockWarning() {
   document.getElementById('shockWarningOverlay').classList.remove('open');
   document.body.style.overflow = '';
@@ -1900,10 +2155,10 @@ function proceedToUnverifiedContent() {
 function closeModal() { 
   document.getElementById('artModal').classList.remove('open'); 
   document.body.style.overflow = ''; 
-  currentReplyTo = null; // Сбрасываем режим ответа
+  currentReplyTo = null;
 }
 
-// ========== ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ И РЕДАКЦИЯ ==========
+// ========== ПОЛИТИКА И РЕДАКЦИЯ ==========
 function openPrivacyPolicy() {
   document.getElementById('privacyModal').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1924,20 +2179,20 @@ function closeAboutModal() {
   document.body.style.overflow = '';
 }
 
-// ========== КОММЕНТАРИИ С ОТВЕТАМИ ==========
+// ========== КОММЕНТАРИИ ==========
 function renderCmts(id) {
   const comments = cmtStore[id] || [];
   const el = document.getElementById('cmtList');
   
   function renderComment(comment, depth = 0) {
-    const marginLeft = depth * 30;
+    const marginLeft = Math.min(depth * 20, 60); // ограничиваем отступ
     return `
-      <div class="cmt" style="margin-left: ${marginLeft}px;">
+      <div class="cmt" style="margin-left: ${marginLeft}px; max-width: calc(100% - ${marginLeft}px);">
         <div class="cmt-name">${comment.name}</div>
         <div class="cmt-text">${comment.text}</div>
         <div class="cmt-time">${comment.time}</div>
-        <div style="display: flex; gap: 16px; align-items: center;">
-          ${comment.reported ? '<div style="font-size:11px;color:var(--red);margin-top:3px;">⚠️ Жалоба отправлена</div>' :
+        <div class="cmt-actions">
+          ${comment.reported ? '<div style="font-size:11px;color:var(--red);">⚠️ Жалоба отправлена</div>' :
             `<button class="cmt-report" onclick="reportCmt(${id},${comment.id})">Пожаловаться</button>`}
           <button class="cmt-reply-btn" onclick="setReplyTo(${comment.id})">Ответить</button>
         </div>
@@ -1990,7 +2245,6 @@ function addComment() {
   const text = document.getElementById('cmtText').value.trim();
   if (!name || !text) { showToast('Заполните имя и текст'); return; }
   
-  // Проверка на плохие слова
   if (containsBadWords(text)) {
     showToast('❌ Ваш комментарий содержит неприемлемые выражения');
     return;
@@ -2006,7 +2260,7 @@ function addComment() {
   
   const n = new Date();
   const newComment = {
-    id: Date.now(), // уникальный ID
+    id: Date.now(),
     name,
     text,
     time: `${n.getDate()} марта, ${String(n.getHours()).padStart(2, '0')}:${String(n.getMinutes()).padStart(2, '0')}`,
@@ -2015,7 +2269,6 @@ function addComment() {
   };
   
   if (currentReplyTo !== null) {
-    // Ищем родительский комментарий и добавляем ответ
     const findAndAddReply = (comments) => {
       for (let c of comments) {
         if (c.id === currentReplyTo) {
@@ -2029,7 +2282,6 @@ function addComment() {
     };
     
     if (!findAndAddReply(cmtStore[id])) {
-      // Если родитель не найден, добавляем как обычный
       cmtStore[id].push(newComment);
     }
   } else {
@@ -2055,6 +2307,7 @@ function openSearch() {
   document.body.style.overflow = 'hidden';
   setTimeout(() => document.getElementById('sInput').focus(), 80);
   doSearch();
+  toggleBurgerMenu();
 }
 function closeSearch() {
   document.getElementById('searchOverlay').classList.remove('open');
@@ -2068,7 +2321,6 @@ function doSearch() {
   const found = arts.filter(a => a.title.toLowerCase().includes(q) || a.lead.toLowerCase().includes(q) || a.content.toLowerCase().includes(q) || a.cat.toLowerCase().includes(q));
   if (!found.length) { res.innerHTML = `<div class="snone">По запросу «${q}» ничего не найдено</div>`; return; }
   
-  // Подсветка совпадений
   const highlight = (text, query) => {
     const regex = new RegExp(`(${query})`, 'gi');
     return text.replace(regex, '<span style="background: var(--red); color: white; padding: 2px 4px; border-radius: 4px;">$1</span>');
@@ -2152,10 +2404,9 @@ function showToast(msg) {
 }
 window.addEventListener('scroll', () => { document.getElementById('btt').classList.toggle('visible', scrollY > 400); });
 
-// ========== ЗАКРЫТИЕ МОДАЛОК ПО ESC ==========
+// ========== ESC ==========
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
-    // Закрываем все модалки по очереди
     if (document.getElementById('artModal').classList.contains('open')) {
       closeModal();
     } else if (document.getElementById('searchOverlay').classList.contains('open')) {
@@ -2170,13 +2421,13 @@ document.addEventListener('keydown', function(e) {
       closePrivacyModal();
     } else if (document.getElementById('aboutModal').classList.contains('open')) {
       closeAboutModal();
+    } else if (document.getElementById('burgerMenu').classList.contains('open')) {
+      document.getElementById('burgerMenu').classList.remove('open');
     }
   }
 });
 
-// Инициализация опросов при загрузке
 document.addEventListener('DOMContentLoaded', function() {
-  // Сбрасываем голоса
   pollVotes = [0, 0, 0, 0];
   hasVoted = false;
 });
