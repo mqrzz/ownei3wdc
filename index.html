@@ -196,7 +196,6 @@ body{
   background:var(--card-bg-alt);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  /* Убрал position: sticky для ПК */
 }
 .top-bar-inner{
   max-width:1300px;
@@ -1072,11 +1071,22 @@ body{
     grid-template-columns: 1fr;
   }
   
-  /* На телефонах закрепляется ТОЛЬКО логотип и верхняя плашка */
+  /* На телефонах закрепляется ТОЛЬКО логотип */
   .top-bar {
     position: sticky;
     top: 0;
     z-index: 1000;
+    padding: 8px 0;
+  }
+  
+  /* Скрываем дату, время и курс валют на мобильных */
+  .top-bar-left {
+    display: none;
+  }
+  
+  /* Показываем только логотип в masthead (он и так есть) */
+  .masthead {
+    padding: 12px 0;
   }
 }
 
