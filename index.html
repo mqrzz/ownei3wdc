@@ -1931,5 +1931,88 @@ function filterCatMob(cat, idx){
   filterCat(cat, null);
 }
 </script>
+<style>
+/* ═══════════════════════════════════════
+   МОБИЛЬНЫЙ РЕЖИМ: ОТКЛЮЧАЕМ ТЯЖЁЛЫЕ ЭФФЕКТЫ (БОРЬБА С ЛАГАМИ)
+═══════════════════════════════════════ */
+@media (max-width: 900px) {
+  /* Отключаем backdrop-filter у всех элементов, где он был */
+  .top-bar,
+  .masthead,
+  .nav-bar,
+  .mob-tabbar,
+  .pill-btn,
+  .nav-search-pill,
+  .mtab-search,
+  .featured-main,
+  .side-art,
+  .grid-art,
+  .col-art,
+  .trend-list li,
+  .af-item,
+  .weather-wrap,
+  .tomsk-widget,
+  .poll-banner,
+  .showcase-card,
+  .modal-box,
+  .search-overlay .sbox,
+  .warning-box,
+  .poll-box,
+  .cmt,
+  .btt,
+  .toast {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Упрощаем фоны до сплошных (берём значения из переменных) */
+  .top-bar { background: var(--bg2); }
+  .masthead { background: var(--bg2); }
+  .nav-bar { background: var(--bg2); }
+  .mob-tabbar { background: var(--bg2); }
+  .featured-main { background: var(--bg2); }
+  .side-art { background: var(--bg2); }
+  .grid-art { background: var(--bg2); }
+  .col-art { background: var(--bg2); }
+  .poll-banner { background: var(--bg2); }
+  .modal-box { background: var(--bg2); }
+  .sbox { background: var(--bg2); }
+  .warning-box { background: var(--bg2); }
+  .poll-box { background: var(--bg2); }
+
+  /* Убираем тени */
+  .pill-btn,
+  .nav-search-pill,
+  .mtab-search,
+  .featured-main,
+  .side-art,
+  .grid-art,
+  .col-art,
+  .trend-list li,
+  .af-item,
+  .weather-wrap,
+  .tomsk-widget,
+  .poll-banner,
+  .showcase-card,
+  .btt,
+  .toast {
+    box-shadow: none !important;
+  }
+
+  /* Убираем сложные трансформации при наведении (они всё равно не работают на тач-экранах) */
+  .grid-art:hover,
+  .side-art:hover,
+  .col-art:hover,
+  .trend-list li:hover,
+  .af-item:hover {
+    transform: none !important;
+  }
+
+  /* Упрощаем анимации */
+  .grid-art.visible {
+    animation: fadeIn 0.2s ease forwards !important;
+  }
+}
+</style>
 </body>
 </html>
